@@ -1,0 +1,47 @@
+### Pyramid of Pain in Cybersecurity
+
+The **Pyramid of Pain** is a model that illustrates the difficulty an attacker faces when defenders detect and disrupt their activities. It consists of six levels, from easiest to hardest to evade:
+
+
+1. **Hash Values** – Unique identifiers of files (easy to change).
+2. **IP Addresses** – Attackers can switch IPs quickly.
+3. **Domain Names** – Domains can be abandoned or changed.
+4. **Network/Host Artifacts** – Harder to change, as they involve system configurations.
+5. **Tools** – Attackers rely on specific tools, making replacements difficult.
+6. **TTPs (Tactics, Techniques, and Procedures)** – The hardest to change as they define the attacker's behavior and strategy.
+
+The higher you go in the pyramid, the more pain it causes the attacker. Effective defense should focus on disrupting TTPs rather than just blocking simple indicators.
+
+
+#### **Levels of the Pyramid**
+
+1. **Hash Values (Least Painful)**
+    
+    - Hashes (MD5, SHA-1, SHA-256) uniquely identify files.
+    - Attackers can easily modify a file (e.g., by changing a single byte) to generate a different hash.
+    - Defenders should not rely solely on hash-based detection, as it is easy to bypass.
+2. **IP Addresses**
+    
+    - Attackers use IP addresses to communicate with compromised systems or command-and-control (C2) servers.
+    - Blocking malicious IPs can be effective in the short term, but attackers can quickly switch to new ones using VPNs, proxies, or botnets.
+    - IP-based detection requires continuous updates to remain effective.
+3. **Domain Names**
+    
+    - Domains are used for phishing, malware delivery, and C2 communication.
+    - Attackers can register new domains or use domain generation algorithms (DGA) to evade detection.
+    - Blocking malicious domains adds friction but does not completely stop an attacker.
+4. **Network/Host Artifacts**
+    
+    - These include registry modifications, scheduled tasks, file paths, and other system footprints left by malware or attack tools.
+    - Unlike hashes, these artifacts are harder to change, but skilled attackers can still adapt.
+    - Detection based on behavioral analysis and heuristics is more effective than static signatures.
+5. **Tools**
+    
+    - Attackers use specific tools like Mimikatz, Cobalt Strike, Metasploit, or custom scripts for exploitation and lateral movement.
+    - Preventing or detecting these tools forces attackers to find alternatives, increasing their workload.
+    - Organizations should monitor tool execution and enforce application whitelisting where possible.
+6. **TTPs (Tactics, Techniques, and Procedures) – Most Painful**
+    
+    - TTPs define how an attacker operates, including their methods for reconnaissance, privilege escalation, persistence, and exfiltration.
+    - Unlike tools and artifacts, TTPs are deeply embedded in an attacker's skillset and mindset, making them the hardest to change.
+    - Organizations should use frameworks like **MITRE ATT&CK** to track TTPs and implement behavior-based detection and response strategies.
